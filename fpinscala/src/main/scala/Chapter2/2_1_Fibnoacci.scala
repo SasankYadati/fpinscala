@@ -1,3 +1,4 @@
+package chapter2
 object Fibonacci {
     def fib(n: Int): Int = {
         @annotation.tailrec
@@ -6,9 +7,5 @@ object Fibonacci {
             else go(n-1, curr, prev+curr)
         }
         go(n, 0, 1)
-    }
-
-    def main(args: Array[String]): Unit = {
-        println(fib(5))
     }
 }

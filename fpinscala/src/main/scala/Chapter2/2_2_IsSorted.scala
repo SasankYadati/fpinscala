@@ -1,3 +1,4 @@
+package chapter2
 object Sorted {
     def IsSorted[A](arr: Array[A], ordered: (A, A) => Boolean): Boolean = {
         @annotation.tailrec
@@ -11,10 +12,5 @@ object Sorted {
 
     def compareIntegers(a: Int, b: Int): Boolean = {
         a <= b
-    }
-
-    def main(args: Array[String]): Unit = {
-        println(IsSorted(Array(1, 2, 3), compareIntegers))
-        println(IsSorted(Array(1, 2, 3, 2), compareIntegers))
     }
 }
