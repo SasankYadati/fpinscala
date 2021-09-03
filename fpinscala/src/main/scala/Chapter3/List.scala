@@ -1,6 +1,6 @@
 package chapter3
 
-sealed trait List[+A]
+trait List[+A]
 case object Nil extends List[Nothing]
 case class Cons[+A](head:A, tail:List[A]) extends List[A]
 
@@ -21,6 +21,21 @@ object List {
         xs match {
             case Nil => Nil
             case Cons(y, ys) => ys
+        }
+    }
+
+    def setHead[A](xs: List[A], head: A): List[A] = {
+        xs match {
+            case Nil => Nil
+            case Cons(_, tail) => Cons(head, tail)
+        }
+    }
+
+    def drop[A](xs: List[A], n:Int): List[A] = {
+        if n == 0 then xs
+        else xs match {
+            case Nil => Nil
+            case Cons(_, tail) => drop(tail, n-1)
         }
     }
 }

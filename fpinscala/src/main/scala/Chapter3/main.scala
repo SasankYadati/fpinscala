@@ -13,5 +13,11 @@ object c3 {
 
         // 3_2
         println(List.tail(List(1,2,3,4)))
+
+        // 3_3
+        println(List.setHead(List(1,2,3,4), 100))
+
+        // 3_4
+        println(List.drop(List(1,2,3,4,5,6,7), 5))
     }
 }
