@@ -12,6 +12,14 @@ object List {
         }
     }
 
+    def product(ds: List[Double]): Double = {
+        ds match {
+            case Nil => 1
+            case Cons(0.0, _) => 0.0
+            case Cons(d, ds) => d * product(ds)
+        }
+    }
+
     def apply[A](as: A*): List[A] = {
         if (as.isEmpty) Nil
         else Cons(as.head, apply(as.tail:_*))
@@ -36,6 +44,13 @@ object List {
         else xs match {
             case Nil => Nil
             case Cons(_, tail) => drop(tail, n-1)
+        }
+    }
+
+    def dropWhile[A](l: List[A], f:A => Boolean): List[A] = {
+        l match {
+            case Nil => Nil
+            case Cons(x, xs) => if f(x) then dropWhile(xs, f) else l
         }
     }
 }

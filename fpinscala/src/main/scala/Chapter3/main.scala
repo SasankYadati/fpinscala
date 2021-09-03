@@ -19,5 +19,12 @@ object c3 {
 
         // 3_4
         println(List.drop(List(1,2,3,4,5,6,7), 5))
+
+        // 3_5
+        def lessThanFive(a: Int): Boolean = {
+            if a < 5 then true
+            else false
+        }
+        println(List.dropWhile(List(1,2,3,4,5,6,7), lessThanFive))
     }
 }
