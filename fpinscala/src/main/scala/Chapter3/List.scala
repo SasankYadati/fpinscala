@@ -38,7 +38,8 @@ object List {
             case Cons(_, tail) => Cons(head, tail)
         }
     }
-
+    
+    @annotation.tailrec
     def drop[A](xs: List[A], n:Int): List[A] = {
         if n == 0 then xs
         else xs match {
@@ -52,5 +53,23 @@ object List {
             case Nil => Nil
             case Cons(x, xs) => if f(x) then dropWhile(xs, f) else l
         }
+    }
+
+    def dropTail[A](xs: List[A]): List[A] = {
+        import collection.mutable.ListBuffer
+        val buffer = new ListBuffer[A]
+        
+        @annotation.tailrec
+        def dropTailGo(l: List[A]): List[A] = {
+            l match {
+                case Nil => sys.error("dropTail of Nil")
+                case Cons(_, Nil) => List(buffer.toList:_*)
+                case Cons(h, t) => {
+                    buffer += h
+                    dropTailGo(t)
+                }
+            }
+        }
+        dropTailGo(xs)
     }
 }

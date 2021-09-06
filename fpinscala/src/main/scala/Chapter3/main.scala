@@ -10,15 +10,19 @@ object c3 {
             case Cons(h, t) => h + List.sum(t)
         }
         println(x)
+        println("\n")
 
         // 3_2
         println(List.tail(List(1,2,3,4)))
+        println("\n")
 
         // 3_3
         println(List.setHead(List(1,2,3,4), 100))
+        println("\n")
 
         // 3_4
         println(List.drop(List(1,2,3,4,5,6,7), 5))
+        println("\n")
 
         // 3_5
         def lessThanFive(a: Int): Boolean = {
@@ -26,5 +30,9 @@ object c3 {
             else false
         }
         println(List.dropWhile(List(1,2,3,4,5,6,7), lessThanFive))
+        println("\n")
+
+        // 3_6
+        println(List.dropTail(List(1,2,3,4,5)))
     }
 }
