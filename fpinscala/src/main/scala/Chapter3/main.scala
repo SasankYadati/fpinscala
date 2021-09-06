@@ -34,5 +34,11 @@ object c3 {
 
         // 3_6
         println(List.dropTail(List(1,2,3,4,5)))
+
+        // 3_9
+        println("Length of list using foldRight")
+        val len = List.len(List(1,2,3))
+        println(len)
+        println("\n")
     }
 }

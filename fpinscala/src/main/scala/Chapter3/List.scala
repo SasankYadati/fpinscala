@@ -73,4 +73,15 @@ object List {
         }
         dropTailGo(xs)
     }
+
+    def foldRight[A, B](l: List[A], acc: B)(f: (A, B) => B): B = {
+        l match {
+            case Nil => acc
+            case Cons(h, t) => f(h, foldRight(t, acc)(f))
+        }
+    }
+
+    def len[A](l: List[A]): Int = {
+        foldRight(l, 0)((_, y) => 1 + y)
+    }
 }
