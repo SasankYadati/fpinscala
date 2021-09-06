@@ -29,7 +29,7 @@ object c3 {
             if a < 5 then true
             else false
         }
-        println(List.dropWhile(List(1,2,3,4,5,6,7), lessThanFive))
+        println(List.dropWhile(List(1,2,3,4,5,6,7))(x => x < 5))
         println("\n")
 
         // 3_6
