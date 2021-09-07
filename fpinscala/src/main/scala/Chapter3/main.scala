@@ -34,11 +34,23 @@ object c3 {
 
         // 3_6
         println(List.dropTail(List(1,2,3,4,5)))
+        println("\n")
 
         // 3_9
         println("Length of list using foldRight")
         val len = List.len(List(1,2,3))
         println(len)
+        println("\n")
+
+        // 3_10 and 3_11
+        println("Sum, product and length using foldleft")
+        val l = List(1,3,5,10)
+        val sum = List.foldLeft(l, 0)((x,y) => x + y)
+        val product = List.foldLeft(l, 1.0)((x, y) => x * y)
+        val length = List.foldLeft(l, 0)((_, y) => 1 + y)
+        println(sum)
+        println(product)
+        println(length)
         println("\n")
     }
 }

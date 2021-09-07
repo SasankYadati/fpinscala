@@ -84,4 +84,12 @@ object List {
     def len[A](l: List[A]): Int = {
         foldRight(l, 0)((_, y) => 1 + y)
     }
+
+    @annotation.tailrec
+    def foldLeft[A, B](l: List[A], acc: B)(f: (A, B) => B): B = {
+        l match {
+            case Nil => acc
+            case Cons(h, t) => foldLeft(t, f(h, acc))(f)
+        }
+    }
 }
