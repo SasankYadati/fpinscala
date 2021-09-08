@@ -92,4 +92,20 @@ object List {
             case Cons(h, t) => foldLeft(t, f(h, acc))(f)
         }
     }
+
+    def append[A](l: List[A], r: List[A]): List[A] = {
+        foldRight(l, r)((a, b) => Cons(a, b))
+    }
+
+    def reverse[A](l: List[A]): List[A] = {
+        foldLeft(l, List[A]())((x, y) => Cons(x, y))
+    }
+
+    def addX(l: List[Int], x: Int): List[Int] = {
+        foldRight(l, List[Int]())((a, b) => Cons(a+x, b))
+    }
+
+    def map[A,B](as: List[A])(f: A => B): List[B] = {
+        foldRight(as, List[B]())((a,b) => Cons(f(a), b))
+    }
 }

@@ -52,5 +52,32 @@ object c3 {
         println(product)
         println(length)
         println("\n")
+
+        // 3_12
+        println("Reverse a list using fold")
+        println(List.reverse(l))
+        println("\n")
+
+        // 3_14
+        println("Append a list using fold")
+        val a = List(1,3,5,10)
+        val b = List(2,4,6)
+        val newl = List.append(a, b)
+        println(newl)
+        println("\n")
+
+        // 3_16
+        println("Add one to each item in list")
+        val add1 = List.addX(a, 1)
+        println(a)
+        println(add1)
+        println("\n")
+
+        // 3_18
+        println("Add 5 using map to each item in list")
+        val add5 = List.map(a)(a => a+5)
+        println(a)
+        println(add5)
+        println("\n")
     }
 }
