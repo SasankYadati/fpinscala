@@ -31,7 +31,7 @@ sealed trait Option[+A] {
 
     def filter(f: A => Boolean): Option[A] = {
         this match {
-            case Some(a) => if f(a) Some(a)
+            case Some(a) if f(a) => this
             case _ => None
         }
     }
