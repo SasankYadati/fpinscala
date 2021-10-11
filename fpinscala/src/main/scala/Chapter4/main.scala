@@ -23,5 +23,16 @@ object c4 {
         val sq = List(Some(1), Some(2), Some(3))
         println(Option.sequence(sq))
         println("\n")
+
+        // 4_5
+        def f(x: Int): Option[Int] = {
+            x match {
+                case 0 => None
+                case _ => Some(x)
+            }
+        }
+        val sq2 = List(1, 2, 3)
+        println(Option.traverse(sq2)(f))
+        println("\n")
     }
 }
